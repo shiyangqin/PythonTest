@@ -1,3 +1,3 @@
 # PythonTest
 
-+ threading_lock_test：python线程锁练习
++ threading_test：threading模块练习
