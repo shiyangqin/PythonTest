@@ -4,6 +4,7 @@ import threading
 
 class ProblemDemo(object):
     """死锁样例"""
+
     _item_1 = 0
     _item_2 = 0
     _item_1_lock = threading.Lock()

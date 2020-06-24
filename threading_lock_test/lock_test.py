@@ -4,6 +4,7 @@ import threading
 
 class ProblemDemo(object):
     """问题样例"""
+
     _item_list = ['item']
 
     @staticmethod
@@ -22,6 +23,7 @@ class ProblemDemo(object):
 
 class LockDemo(object):
     """加锁样例"""
+
     _item_list = ['item']
     _item_list_lock = threading.Lock()
 
