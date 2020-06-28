@@ -1,9 +1,10 @@
 # -*- coding:utf-8 -*-
+import datetime
 import threading
 
 
 def run(t_name):
-    print(t_name + " run")
+    print(datetime.datetime.now(), " " + t_name + " run")
 
 
 def timer_demo():
