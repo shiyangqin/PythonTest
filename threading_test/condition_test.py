@@ -29,21 +29,23 @@ class ConditionDemo(object):
             return not self.size()
 
     def put(self, item):
-        """向队列中添加元素，队列满时挂起，调用get函数时唤醒"""
+        """向队列中添加元素"""
         print("put item")
         with self.not_full:
             if self.maxsize > 0:
                 while self.size() >= self.maxsize:
+                    # 队列满时阻塞，调用get函数取出元素后唤醒
                     print("put item wait")
                     self.not_full.wait()
             self._queue.append(item)
             self.not_empty.notify()
 
     def get(self):
-        """从队列中获取元素，队列空时挂起，调用put函数时唤醒"""
+        """从队列中获取元素"""
         print("get item")
         with self.not_empty:
             while not self.size():
+                # 队列空时阻塞，调用put函数添加元素后唤醒
                 print("get item wait")
                 self.not_empty.wait()
             item = self._queue.popleft()
