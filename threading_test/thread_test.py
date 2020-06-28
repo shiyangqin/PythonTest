@@ -32,6 +32,29 @@ def thread_demo_2():
         t.start()
 
 
+class CallDemo(object):
+
+    def __init__(self, t_name, sleep_time):
+        self._t_name = t_name
+        self._sleep_time = sleep_time
+
+    def __call__(self):
+        self.run()
+
+    def run(self):
+        print(self._t_name + " run")
+        time.sleep(self._sleep_time)
+
+
+def thread_demo_3():
+    """线程创建示例3"""
+    for i in range(5):
+        t = threading.Thread(name="Thread-"+str(i), target=CallDemo("Thread-"+str(i), i))
+        print(t.getName() + " start")
+        t.start()
+
+
 if __name__ == '__main__':
     # thread_demo_1()
-    thread_demo_2()
+    # thread_demo_2()
+    thread_demo_3()
