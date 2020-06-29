@@ -54,7 +54,24 @@ def thread_demo_3():
         t.start()
 
 
+class DaemonDemo(threading.Thread):
+    """守护线程样例"""
+
+    def run(self) -> None:
+        print(self.getName() + " run")
+        time.sleep(self._args[0])
+        print(self.getName() + " end")
+
+
+def daemon_demo():
+    """守护线程样例"""
+    t = DaemonDemo(name="Thread-daemon", args=(2,), daemon=True)
+    print(t.getName() + " start")
+    t.start()
+
+
 if __name__ == '__main__':
     # thread_demo_1()
     # thread_demo_2()
-    thread_demo_3()
+    # thread_demo_3()
+    daemon_demo()
