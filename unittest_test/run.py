@@ -12,5 +12,3 @@ if __name__ == '__main__':
     with open('./logs/test.log', 'a') as f:
         runner = unittest.TextTestRunner(stream=f, verbosity=2)
         result = runner.run(suite)
-    if not result.wasSuccessful():
-        logger.error(f"unittest failures = {result.failures}")
